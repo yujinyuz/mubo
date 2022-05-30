@@ -1,0 +1,39 @@
+{% load django_htmx %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>mubo.me</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="{% static 'js/htmx.min.js' %}" defer></script>
+    {% django_htmx_script %}
+    <style>
+      .htmx-indicator{
+        opacity:0;
+        transition: opacity 500ms ease-in;
+      }
+      .htmx-request .htmx-indicator{
+        opacity: 1;
+      }
+      .htmx-request.htmx-indicator{
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    <h1>mubo.me</h1>
+    <p>Shortest and Fastest URL Shortener</p>
+    <div
+      data-hx-get="{% url 'create_shortcode' %}"
+      data-hx-trigger="load"
+      data-hx-swap="innerHTML"
+      data-hx-target="#sc-target"
+    >
+    </div>
+    <div id="sc-target">
+      Loading...
+    </div>
+    <span id="the-target">https://mubo.me/</span>
+  </body>
+</html>
