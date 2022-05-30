@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from pathlib import Path
 
+import dj_database_url
 from decouple import config
 
 # Build paths inside the project like this: str(BASE_DIR / "subdir")
@@ -95,13 +96,15 @@ WSGI_APPLICATION = "mubo.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": str(PROJECT_DIR / "db.sqlite3"),
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": str(PROJECT_DIR / "db.sqlite3"),
+        }
     }
-}
 
 
 # Password validation
