@@ -24,16 +24,9 @@
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <h1>mubo.me</h1>
     <p>Shortest and Fastest URL Shortener</p>
-    <div
-      data-hx-get="{% url 'create_shortcode' %}"
-      data-hx-trigger="load"
-      data-hx-swap="innerHTML"
-      data-hx-target="#sc-target"
-    >
-    </div>
-    <div id="sc-target">
-      Loading...
-    </div>
-    <span id="the-target">https://mubo.me/</span>
+    {% include "shortcodes/fragments/create_shortcode_form.html" %}
+    <span id="shortened-link">
+      <a href="/">https://mubo.me/</a>
+    </span>
   </body>
 </html>

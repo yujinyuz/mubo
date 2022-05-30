@@ -8,7 +8,7 @@ from .models import ShortCode
 
 
 def index(request: HttpRequest):
-    return render(request, template_name="base.html")
+    return render(request, template_name="base.html", context={"form": ShortCodeForm()})
 
 
 def detail(request: HttpRequest, code: str):

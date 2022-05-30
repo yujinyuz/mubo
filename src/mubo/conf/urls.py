@@ -24,8 +24,10 @@ from mubo.apps.shortcodes import views as sc_views
 
 urlpatterns = [
     path("", sc_views.index, name="index"),
-    path("create-shortcode", sc_views.create_shortcode_htmx, name="create_shortcode"),
-    path("<str:code>", sc_views.detail, name="detail"),
+    path(
+        "create-shortcode", sc_views.create_shortcode_htmx, name="create_shortcode_htmx"
+    ),
+    path("<str:code>", sc_views.detail, name="mubo_redirect"),
     path("admin/", admin.site.urls),
 ]
 
