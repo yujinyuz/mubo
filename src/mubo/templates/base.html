@@ -1,32 +1,53 @@
 {% load django_htmx %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
   <head>
     <title>mubo.me</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Eugene Oliveros" />
+    <meta name="description" content="Shortest and Fastest URL Shortener" />
+    <meta name="keywords" content="url shortener,url,shortener,fast" />
+    <meta name="application-name" content="mubodotme" />
+    <link rel="stylesheet" href="{% static 'css/pico.classless.min.css' %}" />
     <script src="{% static 'js/htmx.min.js' %}" defer></script>
+    <script src="{% static 'js/htmx-ext.js' %}" defer> </script>
     {% django_htmx_script %}
+
     <style>
-      .htmx-indicator{
-        opacity:0;
-        transition: opacity 500ms ease-in;
+      body > header {
+        padding-bottom: 0;
       }
-      .htmx-request .htmx-indicator{
-        opacity: 1;
-      }
-      .htmx-request.htmx-indicator{
-        opacity: 1;
+
+      body > footer {
+        text-align: center;
+        padding-top: 0;
       }
     </style>
   </head>
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-    <h1>mubo.me</h1>
-    <p>Shortest and Fastest URL Shortener</p>
-    {% include "shortcodes/fragments/create_shortcode_form.html" %}
-    <span id="shortened-link">
-      <a href="/">https://mubo.me/</a>
-    </span>
+    <header>
+      <hgroup>
+        <h1>mubo.me</h1>
+        <h2>Keep those URLs shorter than ever!</h2>
+      </hgroup>
+    </header>
+    <main>
+      {% include "shortcodes/fragments/create_shortcode_form.html" %}
+      <span id="shortened-link">
+        <a href="/">https://mubo.me/</a>
+      </span>
+    </main>
+
+    <footer>
+      <div>
+        Made with <span style="color: #e25555;">&hearts;</span> in Philippines &#127477;&#127469;
+      </div>
+      <div>
+        GitHub: <a target="_blank" rel="noreferrer noopener" href="https://github.com/yujinyuz">@yujinyuz</a>
+      </div>
+    </footer>
   </body>
+
 </html>

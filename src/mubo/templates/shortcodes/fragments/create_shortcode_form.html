@@ -2,15 +2,16 @@
 <div id="formDiv">
   <form data-hx-post="{% url 'create_shortcode_htmx' %}"
     data-hx-target="#formDiv"
+    data-hx-ext="pico-busy"
     data-hx-swap="outerHTML">
-    <div>
-      {{ form }}
-      <button type="submit">
-        Mubofy
-      </button>
-      <img class="htmx-indicator" src="{% static 'img/bars.svg' %}">
-    </div>
+    {{ form }}
+    <button type="submit">
+      Mubofy
+    </button>
   </form>
 </div>
-<!-- hx-swap-oob will replace the `#the-taget` element if this is sent from the server side to the DOM. Amazing! -->
-{% if code and not form.errors %}<div hx-swap-oob="innerHTML:#shortened-link"><a href="{% url 'mubo_redirect' code %}">https://mubo.me/{{ code }}</a></div>{% endif %}
+
+{% if code and not form.errors %}
+  <!-- hx-swap-oob will replace the `#the-taget` element if this is sent from the server side to the DOM. Amazing! -->
+  <div hx-swap-oob="innerHTML:#shortened-link"><a href="{% url 'mubo_redirect' code %}">https://mubo.me/{{ code }}</a></div>
+{% endif %}

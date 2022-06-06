@@ -13,3 +13,4 @@ class ShortCodeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["url"].help_text = ""
+        self.fields["url"].label = "Enter URL"
