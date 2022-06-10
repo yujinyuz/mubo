@@ -11,6 +11,12 @@
     <meta name="keywords" content="url shortener,url,shortener,fast" />
     <meta name="application-name" content="mubodotme" />
     <link rel="stylesheet" href="{% static 'css/pico.classless.min.css' %}" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'icons/site.webmanifest' %}">
+
     <script src="{% static 'js/htmx.min.js' %}" defer></script>
     <script src="{% static 'js/htmx-ext.js' %}" defer> </script>
     {% django_htmx_script %}
@@ -38,6 +44,7 @@
       <span id="shortened-link">
         <a href="/">https://mubo.me/</a>
       </span>
+      <!-- <progress></progress> -->
     </main>
 
     <footer>
