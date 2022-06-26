@@ -3,6 +3,7 @@ from typing import Optional
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
 from django.db import models
+from mubo.apps.core.models import BaseModel
 
 
 class UserManager(BaseUserManager):
@@ -23,7 +24,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractUser):
+class User(AbstractUser, BaseModel):
 
     objects = UserManager()
 
@@ -39,4 +40,4 @@ class User(AbstractUser):
     phone = models.CharField(blank=True, max_length=255)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return self.get_full_name() or self.get_username()

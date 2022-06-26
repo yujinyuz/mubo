@@ -3,6 +3,7 @@ import random
 from django.db import models
 from django.db.models.expressions import F
 from django.utils.crypto import get_random_string
+from mubo.apps.core.models import BaseModel
 
 
 def generate_short_code() -> str:
@@ -10,7 +11,7 @@ def generate_short_code() -> str:
     return get_random_string(length=random.randint(4, shortcode_length - 2))
 
 
-class ShortCode(models.Model):
+class ShortCode(BaseModel):
 
     user = models.ForeignKey(
         "users.User",
