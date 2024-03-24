@@ -2,6 +2,10 @@
 
 Describe your project in one sentence.
 
+## Demo
+
+https://github.com/yujinyuz/mubo/assets/10972027/c30c76af-cb16-433c-9dc0-c33c0b0c1808
+
 ## Quickstart
 
 Install the project and the development dependencies into a [virtual environment](https://docs.python.org/3.7/tutorial/venv.html):
@@ -61,8 +65,8 @@ Also see [How to use Django with Gunicorn](https://docs.djangoproject.com/en/4.0
     ```
 6.  Install the wheel and [collect the static files](https://docs.djangoproject.com/en/4.0/ref/contrib/staticfiles/#django-admin-collectstatic):
     ```console
-    python3 -m pip install --find-links=/path/to/wheel_dir mubo
-    django-project collectstatic --no-input
+    python3 -m pip install setuptools wheel
+    ./build.sh
     ```
 7.  Start Gunicorn like this:
     ```console
