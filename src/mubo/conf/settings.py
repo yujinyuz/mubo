@@ -38,7 +38,7 @@ INTERNAL_IPS = ["localhost", "127.0.0.1", "[::1]"]
 
 # List of strings representing the host/domain names that this site can serve
 # https://docs.djangoproject.com/en/4.0/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", cast=Csv(), default=['127.0.0.1'])
+ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", cast=Csv(), default='127.0.0.1')
 
 CSRF_TRUSTED_ORIGINS = ["https://mubo.me", "https://mubodotme.herokuapp.com"]
 
