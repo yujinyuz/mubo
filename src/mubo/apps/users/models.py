@@ -25,7 +25,6 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser, BaseModel):
-
     objects = UserManager()
 
     # override to extend the max length
@@ -38,6 +37,20 @@ class User(AbstractUser, BaseModel):
     last_name = models.CharField("last name", max_length=254, blank=True, db_index=True)
     email = models.EmailField(verbose_name="email", unique=True)
     phone = models.CharField(blank=True, max_length=255)
+
+    MALE = "m"
+    FEMALE = "f"
+    NO_PREFERENCE = "n"
+    GENDER_CHOICES = (
+        (MALE, "Male"),
+        (FEMALE, "Female"),
+        (NO_PREFERENCE, "Prefer not to say"),
+    )
+    gender = models.CharField(
+        choices=GENDER_CHOICES,
+        max_length=2,
+        default=NO_PREFERENCE,
+    )
 
     def __str__(self):
         return self.get_full_name() or self.get_username()
