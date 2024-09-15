@@ -8,6 +8,10 @@ hatch build
 
 pex dist/*.whl -o mubo.pex -c mubo
 
+ls -l
+
+echo $PWD
+
 chmod +x mubo.pex
 
 ./mubo.pex collectstatic
