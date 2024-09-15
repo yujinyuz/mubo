@@ -44,6 +44,7 @@ dev = [
   "ipython",
   "watchdog",
   "Werkzeug<2.1",
+  "hatch",
 ]
 
 [project.scripts]
