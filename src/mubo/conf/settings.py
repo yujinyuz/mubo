@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from pathlib import Path
 
-import dj_database_url
 from decouple import config
 from decouple import Csv
 
@@ -100,15 +99,12 @@ WSGI_APPLICATION = "mubo.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": str(PROJECT_DIR / "db.sqlite3"),
-        }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": str(PROJECT_DIR / "db.sqlite3"),
     }
-else:
-    DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
+}
 
 
 # Password validation

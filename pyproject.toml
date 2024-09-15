@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mubo"
+dynamic = ["version"]
+description = "Describe your project in one sentence."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "mubo team", email = "devs@jinyez.dev" }]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Web Environment",
+  "Framework :: Django :: 4.0",
+  "Intended Audience :: Developers",
+  "License :: Other/Proprietary License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Private :: Do Not Upload",
+  "Programming Language :: JavaScript",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.5",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+  "Topic :: Internet :: WWW/HTTP :: WSGI",
+]
+dependencies = [
+  "dj-database-url",
+  "django-extensions",
+  "django-htmx",
+  "django>=4.0,<4.1",
+  "gunicorn",
+  "psycopg2-binary",
+  "python-decouple",
+  "uuid7",
+  "whitenoise",
+]
+
+[project.optional-dependencies]
+dev = [
+  "check-manifest==0.48",
+  "django-debug-toolbar",
+  "django-stubs",
+  "ipython",
+  "watchdog",
+  "Werkzeug<2.1",
+]
+
+[project.scripts]
+mubo = "django.core.management:execute_from_command_line"
+
+[project.urls]
+Homepage = "https://mubo.me"
+
+[tool.hatch.version]
+path = "src/mubo/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["/src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mubo"]
