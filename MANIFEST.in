@@ -1,3 +1,0 @@
-graft src/mubo
-prune media
-global-exclude *.py[co]

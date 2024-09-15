@@ -5,10 +5,10 @@ build-backend = "hatchling.build"
 [project]
 name = "mubo"
 dynamic = ["version"]
-description = "Describe your project in one sentence."
+description = "Mubofy your URLs"
 readme = "README.md"
 requires-python = ">=3.8"
-authors = [{ name = "mubo team", email = "devs@jinyez.dev" }]
+authors = [{ name = "mubo team", email = "devs@jinyuz.dev" }]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Environment :: Web Environment",
@@ -39,7 +39,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "check-manifest==0.48",
   "django-debug-toolbar",
   "django-stubs",
   "ipython",
