@@ -11,6 +11,7 @@
 *.dbf
 *.sql
 *.sqlite3
+!demodb.sqlite3
 
 ### Django ###
 media/*
