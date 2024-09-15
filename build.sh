@@ -2,10 +2,14 @@
 # Exit on error
 set -o errexit
 
-pip install setuptools wheel
-python setup.py bdist_wheel
+pip install wheel hatch pex
 
-pip install dist/*.whl
-django-project collectstatic --no-input
+hatch build
 
-django-admin migrate --settings=mubo.conf.settings
+pex dist/*.whl -o mubo.pex -c mubo
+
+chmod +x mubo.pex
+
+./mubo.pex collectstatic
+./mubo.pex migrate
+

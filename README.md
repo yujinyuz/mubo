@@ -13,7 +13,7 @@ Install the project and the development dependencies into a [virtual environment
 ```console
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install --upgrade pip wheel hatch
+python3 -m pip install --upgrade pip wheel hatch pex
 python3 -m pip install --editable ".[dev]"
 
 export DJANGO_DEBUG=true
