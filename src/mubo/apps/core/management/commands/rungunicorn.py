@@ -36,6 +36,7 @@ class Command(BaseCommand):
             "gunicorn",
             f"--bind={options['host']}:{options['port']}",
             f"--workers={options['workers']}",
+            "--access-logfile=-",  # temporarily put this here since we don't have nginx
             "mubo.wsgi:application",
         ]
 
